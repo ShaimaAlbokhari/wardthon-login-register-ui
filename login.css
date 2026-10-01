@@ -1,0 +1,658 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  --first-color: #F47F91;
+  --first-color-alt: #EF5E7B;
+  --title-color: hsl(220, 68%, 4%);
+  --white-color: hsl(0, 0%, 100%);
+  --text-color: hsl(220, 15%, 66%);
+  --body-color: hsl(0, 0%, 100%);
+  --container-color:  hsl(0, 0%, 100%);
+
+  /*========== Font and typography ==========*/
+  --body-font: "Montserrat", system-ui;
+  --big-font-size: 1.5rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --tiny-font-size: 0.688rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1150px) {
+  :root {
+    --big-font-size: 2rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --tiny-font-size: 0.75rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html{
+  width: auto;
+  height: auto;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body,
+input,
+button {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+}
+
+body {
+  background-color: #F0F0F0;
+  color: var(--text-color);
+
+  position: relative;
+}
+
+input,
+button {
+  border: none;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  margin-inline: 1.5rem;
+}
+
+.grid {
+  display: grid;
+}
+
+
+/*=============== LOGIN ===============*/
+.login {
+  position: relative;
+  height: auto;
+  align-items: center;
+  overflow: hidden;
+   background-color: white;
+  border-radius: 20px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+
+
+.login__title {
+  font-size: var(--big-font-size);
+  color: var(--title-color);
+  text-align: center;
+}
+
+.login__box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: var(--container-color);
+  border-radius: 1rem;
+ 
+}
+
+.login__input {
+  background: none;
+  width: 100%;
+  padding: 1rem 2rem 1rem 0.75rem;
+  font-weight: var(--font-semi-bold);
+  border: 3px solid transparent;
+  border-radius: 1rem;
+  z-index: 1;
+  transition: border-color 0.4s;
+  align-self: center;
+  align-items: center;
+}
+
+.login__input:autofill {
+  transition: background-color 6000s, color 6000s;
+}
+
+.login__label {
+  position: absolute;
+  left: 1.25rem;
+  font-weight: var(--font-semi-bold);
+  transition: transform 0.4s, font-size 0.4s, color 0.4s;
+}
+
+.login__password {
+  cursor: pointer;
+  z-index: 10;
+}
+
+.login__forgot {
+  display: block;
+  width: max-content;
+  margin: -1rem 0 0 auto;
+  font-size: var(--small-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--text-color);
+  transition: color 0.4s;
+}
+
+.login__forgot:hover {
+  color: var(--first-color);
+}
+
+.login__button {
+  width: 60%;
+  display: inline-flex;
+  justify-content: center;
+  background-color: var(--first-color);
+  color: var(--white-color);
+  font-weight: var(--font-semi-bold);
+  font-size: 1.5rem;
+  padding-block: 1rem;
+  border-radius: 4rem;
+  cursor: pointer;
+ 
+  align-self: center;
+  align-items: center;
+  margin-bottom: 0px !important;
+  align-content: center;
+  margin: 0 auto; /* هذا هو السطر الذي يجعل الزر في المنتصف */
+
+}
+
+.login__button:hover {
+  background-color: var(--first-color-alt);
+  box-shadow: 0 8px 24px hsla(208, 28%, 37%, 0.3);
+}
+
+.login__social {
+  margin-bottom: 4rem;
+}
+
+.login__social-title {
+  text-align: center;
+  font-size: var(--small-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+  margin-bottom: 1rem;
+}
+
+.login__social-img {
+  width: 2rem;
+}
+
+           
+.login__social-links {
+  display: flex;
+  justify-content: center;
+  column-gap: 2rem;
+  margin-bottom: -10px;
+}
+
+.login__social-link {
+  width: 50px;
+  height: 50px;
+  background-color: var(--body-color);
+  box-shadow: 0 4px 8px hsla(0, 0%, 0%, 0.1);
+  border-radius: 0.5rem;
+  display: grid;
+  place-items: center;
+  transition: transform 0.4s;
+}
+
+.login__social-link:hover {
+  transform: translateY(-0.25rem);
+}
+
+.login__switch {
+  text-align: center;
+  font-size: var(--small-font-size);
+}
+
+.login__switch button {
+  background: none;
+  color: var(--first-color);
+  font-size: var(--small-font-size);
+  font-weight: var(--font-semi-bold);
+  cursor: pointer;
+  transition: color 0.4s;
+}
+
+.login__switch button:hover {
+  color: var(--first-color-alt);
+}
+
+.login__access,
+.login__register {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  transition: transform 0.4s, opacity 0.4s 0.1s;
+}
+
+
+.login__register {
+  display: none;
+}
+
+/* Input focus move up label */
+.login__input:focus ~ .login__label {
+  transform: translateY(-12px);
+  font-size: var(--tiny-font-size);
+}
+
+.login__input:focus {
+  padding-block: 2rem 1rem;
+}
+
+/* Input focus sticky top label */
+.login__input:not(:placeholder-shown):not(:focus) ~ .login__label {
+  transform: translateY(-12px);
+  font-size: var(--tiny-font-size);
+}
+
+.login__input:not(:placeholder-shown):not(:focus) {
+  padding-block: 2rem 1rem;
+}
+
+/* Input focus color */
+.login__input:focus {
+  border-color: var(--first-color);
+}
+
+.login__icon {
+  display: none;
+}
+
+.login__input:focus ~ .login__label {
+  color: var(--first-color);
+}
+
+/* Show hide login & create account */
+.active .login__access {
+  transform: translateX(15rem);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.active .login__register {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: initial;
+}
+
+
+/*=============== BREAKPOINTS ===============*/
+@media screen and (max-width: 320px) {
+  .container {
+    margin-inline: 1rem;
+  }
+}
+
+@media screen and (min-width: 540px) {
+  .login__area {
+    width: 380px;
+    margin-inline: auto;
+  }
+}
+
+@media screen and (min-width: 350px) and (max-height: 600px) {
+  .login {
+    height: 760px;
+  }
+}
+
+@media screen and (min-width: 1150px) {
+
+
+  .login__area {
+    width: 460px;
+    margin: initial;
+  }
+
+  .login__access,
+  .login__register {
+    width: 460px;
+  }
+
+  .login__title {
+    text-align: center;
+    margin-bottom: 2rem;
+    
+  }
+
+
+  .login__group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .login__blob {
+    display: block;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  .login__access,
+  .login__register {
+    right: auto;
+    left:  0;
+  }
+}
+/*-------------------------------------------------------*/
+.login-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100vh;
+  background-color: #A8D0CF;
+  border-top-left-radius: 50% 100%;
+  border-bottom-left-radius: 50% 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: -10;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  
+  /* إصلاحات أداء */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.right {
+  flex: 1;
+}
+
+.right {
+  background-color: white;
+  position: relative;
+  z-index: 2;
+  margin-top: 60px;
+  width: 50%;
+  margin-left: 80px;
+}
+
+
+.left img {
+  width: 80%;
+  max-width: 400px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  margin-left: 20px;
+
+}
+
+.image {
+  z-index: 1;
+
+
+}
+.input-group {
+  display: flex;
+  gap: 1rem; /* مسافة بين المربعات */
+  flex-wrap: wrap; /* للسماح بالنزول للسطر التالي إذا ضاق العرض */
+}
+
+.input-group .login__box {
+  flex: 1; /* يجعل المربعات بنفس الحجم */
+  min-width: 150px; /* حد أدنى لحجم المربع */
+}
+
+.loginButtonAccess{
+  margin-top: -100px !important;
+  margin-bottom: 3rem;
+  z-index: 10;
+}
+
+
+    .login__area {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 450px;
+      margin: 0 auto;
+    }
+
+    .login__form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .login__box {
+      position: relative;
+      margin-bottom: 15px;
+    }
+
+    .login__icon {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #94a3b8;
+      font-size: 20px;
+    }
+
+    .login__password {
+      cursor: pointer;
+      right: 15px;
+      left: auto;
+    }
+
+    .login__forgot {
+      align-self: flex-end;
+      color: var(--primary-color);
+      text-decoration: none;
+      font-size: 14px;
+      margin-top: -10px;
+      transition: all 0.3s ease;
+    }
+
+    .login__forgot:hover {
+      color: var(--secondary-color);
+      text-decoration: underline;
+    }
+
+    .login__switch {
+      text-align: center;
+      margin-top: 25px;
+      color: #64748b;
+    }
+
+    .login__social {
+      margin: 25px 0;
+      text-align: center;
+    }
+
+    .login__social-title {
+      position: relative;
+      color: #64748b;
+      margin-bottom: 20px;
+    }
+
+    .login__social-title::before,
+    .login__social-title::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 30%;
+      height: 1px;
+      background: #e2e8f0;
+    }
+
+    .login__social-title::before {
+      left: 0;
+    }
+
+    .login__social-title::after {
+      right: 0;
+    }
+
+    .login__social-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .login__social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: white;
+      color: var(--primary-color);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      font-size: 20px;
+    }
+
+    .login__social-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      .login {
+        height: auto;
+      }
+      .form-section {
+        min-height: 500px;
+      }
+      .right{
+          margin-left: 0px;
+
+      }
+
+    }
+
+    @media (max-width: 768px) {
+      .form-section {
+        padding: 30px 20px;
+      }
+      .login__title {
+        font-size: 1.8rem;
+      }
+    }
+
+
+    .left img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .login__blob {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: -10;
+    }
+
+/* ===== إخفاء الجزء الأيسر على شاشات الجوال ===== */
+@media screen and (max-width: 768px) {
+  .left {
+    display: none; /* إخفاء الجزء الأيسر */
+  }
+  
+  .right-content {
+    width: 100%; /* جعل الجزء الأيمن يشغل الشاشة كاملة */
+    margin-left: 0; /* إزالة الهامش الأيسر */
+    padding: 1.5rem; /* تعديل الحشوة للشاشات الصغيرة */
+    box-shadow: none; /* إزالة الظل */
+  }
+  
+  /* تعديلات إضافية لتجربة أفضل على الجوال */
+  .form-section {
+    padding: 30px 20px; /* تعديل الحشوة الداخلية */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* ظل أخف */
+  }
+  
+
+  
+  .input-group {
+    flex-direction: column; /* ترتيب العناصر بشكل عمودي */
+    gap: 10; /* إزالة المسافة بين العناصر */
+  }
+  
+  .input-group .form-group {
+    width: 100%; /* جعل العناصر تشغل العرض كاملاً */
+    margin-bottom: 15px; /* مسافة بين العناصر */
+  }
+  
+  .form-button {
+    font-size: 1rem; /* تصغير حجم الخط في الأزرار */
+    padding: 12px 20px; /* تعديل حجم الزر */
+  }
+
+    .right{
+          margin-left: 0px;
+
+      }
+}
+
+/* ===== تعديلات للشاشات الصغيرة جداً ===== */
+@media screen and (max-width: 480px) {
+  .right-content {
+    padding: 1rem; /* حشوة أقل للشاشات الصغيرة جداً */
+  }
+  
+  .form-section {
+    padding: 25px 15px; /* حشوة داخلية أقل */
+  }
+  
+  .form-title {
+    font-size: 1.4rem; /* تصغير حجم العنوان أكثر */
+  }
+}

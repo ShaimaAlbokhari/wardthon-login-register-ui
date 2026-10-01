@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!--=============== REMIXICONS ===============-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css"/> 
+  <!--=============== CSS ===============-->
+  <link rel="stylesheet" href="login.css"/>
+  <link rel="shortcut icon" type="image/png" href="" class="logo">
+
+  <title>Login</title>
+</head>
+<body>
+
+<!--=============== LOGIN CONTAINER ===============-->
+<div class="login-container">
+  <div class="left">
+    <img src="Journey-amico 2.svg" alt="Login Illustration" class="image">
+  </div>
+
+  <div class="right">
+    <div id="loginAccessRegister" class="loginAccessRegister">
+      <!--===== LOGIN ACCESS =====-->
+      <div class="login__access">
+        <h1 class="login__title">Login to your account</h1>
+        <div class="login__area">
+          <form action="" class="login__form">
+            <div class="login__content grid">
+              <div class="login__box">
+                <input type="email" id="email" required placeholder=" " class="login__input">
+                <label for="email" class="login__label">Email</label>
+              </div>
+              <div class="login__box">
+                <input type="password" id="password" required placeholder=" " class="login__input">
+                <label for="password" class="login__label">Password</label>
+                <i class="ri-eye-off-fill login__icon login__password" id="loginPassword"></i>
+              </div>
+            </div>
+            <a href="#" class="login__forgot">Forgot your password?</a>
+            <button type="button" class="login__button" onclick="window.location.href='./';">Login</button>
+          </form>
+          <div class="login__social">
+            <p class="login__social-title">Or login with</p>
+            <div class="login__social-links">
+              <a href="#" class="login__social-link">
+                <img id="btn-siwg" src="icon-google.svg" alt="Google" class="login__social-img">
+              </a>
+              <a href="#" class="login__social-link">
+                <img src="icon-facebook.svg" alt="Facebook" class="login__social-img">
+              </a>
+              <a href="#" class="login__social-link">
+                <img src="icon-apple.svg" alt="GitHub" class="login__social-img">
+              </a>
+
+            </div>
+          </div>
+          <p class="login__switch">
+            Don't have an account?
+            <button type="button" id="loginButtonRegister">Create Account</button>
+          </p>
+        </div>
+      </div>
+
+      <!--===== LOGIN REGISTER =====-->
+      <div class="login__register">
+        <h1 class="login__title">Create a new account</h1>
+        <div class="login__area">
+          <form action="" class="login__form" id="registerForm">
+            <div class="login__content grid">
+              <div class="input-group">
+                <div class="login__box">
+                  <input type="text" id="firstName" required placeholder=" " class="login__input">
+                  <label for="firstName" class="login__label">First Name</label>
+                  <i class="ri-user-fill login__icon"></i>
+                </div>
+                <div class="login__box">
+                  <input type="text" id="lastName" required placeholder=" " class="login__input">
+                  <label for="lastName" class="login__label">Last Name</label>
+                  <i class="ri-user-fill login__icon"></i>
+                </div>
+              </div>
+              <div class="login__box">
+                <input type="date" id="birthdate" required class="login__input">
+                <label for="birthdate" class="login__label">Date of Birth</label>
+                <i class="ri-calendar-event-fill login__icon"></i>
+              </div>
+              <div class="input-group">
+                <div class="login__box">
+                  <select id="country" required class="login__input" onchange="updateCities()">
+                     <option value="">Select a country</option>
+                     <option value="SA">Saudi Arabia</option>
+                     <option value="US">United States</option>
+                     <option value="UK">United Kingdom</option>
+                     <option value="CA">Canada</option>
+                     <option value="AU">Australia</option>
+                     <option value="DE">Germany</option>
+                     <option value="FR">France</option>
+                  </select>
+                  <label for="country" class="login__label">Country</label>
+                  <i class="ri-earth-fill login__icon"></i>
+                  </div>
+
+                  <div class="login__box">
+                  <select id="city" required class="login__input">
+                     <option value="">Select a city</option>
+                  </select>
+                  <label for="city" class="login__label">City</label>
+                  <i class="ri-map-pin-fill login__icon"></i>
+                  </div>
+              </div>
+              <div class="login__box">
+                <select id="gender" required class="login__input">
+                  <option value="" disabled selected>Select a gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="prefer-not">Prefer not to say</option>
+                </select>
+                <label for="gender" class="login__label">Gender</label>
+                <i class="ri-user-heart-fill login__icon"></i>
+              </div>
+              <div class="login__box">
+                <input type="email" id="emailCreate" required placeholder=" " class="login__input">
+                <label for="emailCreate" class="login__label">Email</label>
+                <i class="ri-mail-fill login__icon"></i>
+              </div>
+              <div class="login__box">
+                <input type="password" id="passwordCreate" required placeholder=" " class="login__input">
+                <label for="passwordCreate" class="login__label">Password</label>
+                <i class="ri-eye-off-fill login__icon login__password" id="loginPasswordCreate"></i>
+              </div>
+              <div class="login__box">
+                <input type="password" id="confirmPassword" required placeholder=" " class="login__input">
+                <label for="confirmPassword" class="login__label">Confirm Password</label>
+                <i class="ri-lock-password-fill login__icon"></i>
+              </div>
+              <button type="submit" class="login__button" onclick="window.location.href='./';">Create account</button>
+            </div>
+          </form>
+          <p class="login__switch">
+            Already have an account?
+            <button type="button" id="loginButtonAccess" class="loginButtonAccess">Log In</button>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--=============== MAIN JS ===============-->
+<script src="login.js"></script>
+
+</body>
+</html>
