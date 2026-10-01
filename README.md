@@ -1,6 +1,6 @@
-# 🔐 WordThon — Login & Registration UI
+# 🔐 WardThon — Login & Registration UI
 
-A responsive **login and registration user interface** developed for **WordThon** using HTML, CSS, and JavaScript.
+A responsive **login and registration user interface** developed for **WardThon** using HTML, CSS, and JavaScript.
 
 The project provides a clean front-end interface where users can switch between login and account creation forms, manage password visibility, and select their country and city through dynamic form controls.
 
